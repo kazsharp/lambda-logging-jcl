@@ -6,7 +6,7 @@ lambda式は遅延実行されるため不要な文字列生成を行わない�
 例えば、コストのかかる文字列を生成する```highCostString()```メソッドがあったとします。
 そしてログレベルがDEBUGの時のみ出力したい場合、
 ```java
-  if (LOG.isDebugEnable()) }
+  if (LOG.isDebugEnabled()) }
       LOG.debug(highCostString());
   }
 ```
@@ -14,6 +14,7 @@ lambda式は遅延実行されるため不要な文字列生成を行わない�
 ただ、上記のコードは
 * JUnitでのカバレッジ(C1)が下がってしまう
 * そもそもif文が乱用されるのがうっとうしい
+
 などの問題があります。
 
 lambda-logging-jclを使うことで、上記のコードを下のように記述することができます。
